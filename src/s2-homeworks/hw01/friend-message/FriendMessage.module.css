@@ -3,15 +3,23 @@
 }
 
 .friendImageAndText {
-
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 10fr;
+    grid-gap: 3px;
+    grid-template-areas:
+    "friendImg friendName "
+    "friendImg friendMessageText ";
 }
 
 .friendImageAndText img {
-
+    max-width: 50px;
+    border-radius: 50%;
+    grid-area: friendImg;
 }
 
 .friendText {
-
+    background-color: #b79494;
 }
 
 .friendText:after {
@@ -19,11 +27,11 @@
 }
 
 .friendName {
-
+    grid-area: friendName;
 }
 
 .friendMessageText {
-
+    grid-area: friendMessageText;
 }
 
 .friendTime {

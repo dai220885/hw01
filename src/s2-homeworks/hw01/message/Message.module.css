@@ -1,17 +1,27 @@
 .message {
 
+
 }
 
 .imageAndText {
-
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 10fr;
+    grid-gap: 3px;
+    grid-template-areas:
+    "name img"
+    "messageText img";
 }
 
-.imageAndText img {
 
+.imageAndText img {
+    max-width: 50px;
+    border-radius: 50%;
+    grid-area: img;
 }
 
 .text {
-
+    background-color: #0059b3;
 }
 
 .text:after {
@@ -19,11 +29,11 @@
 }
 
 .name {
-
+grid-area: name;
 }
 
 .messageText {
-
+grid-area: messageText;
 }
 
 .time {
