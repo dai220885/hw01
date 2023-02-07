@@ -5,12 +5,14 @@
 
 .imageAndText {
     display: grid;
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 10fr;
-    grid-gap: 3px;
+    grid-template-columns: 10fr 1fr;
     grid-template-areas:
-    "name img"
-    "messageText img";
+    "name img";
+    align-items: end;
+    margin-left: 60%;
+    margin-top: 5px;
+    grid-area: imageAndText;
+
 }
 
 
@@ -22,20 +24,30 @@
 
 .text {
     background-color: #0059b3;
+    border-radius: 7px;
+    padding: 5px;
 }
 
 .text:after {
-
+    content: '';
+    width: 50px;
+    height: 3px;
+    border-radius: 50%;
+    display: inline-block;
+    color: #00cc22;
+    margin: 0px 0px 0px 200px;
 }
 
 .name {
-grid-area: name;
+    grid-area: name;
 }
 
 .messageText {
-grid-area: messageText;
+    grid-area: messageText;
 }
 
 .time {
-
+    margin-right: 6px;
+    display: grid;
+    justify-items: end;
 }

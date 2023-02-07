@@ -4,12 +4,11 @@
 
 .friendImageAndText {
     display: grid;
-    grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr 10fr;
-    grid-gap: 3px;
     grid-template-areas:
-    "friendImg friendName "
-    "friendImg friendMessageText ";
+    "friendImg friendName";
+    align-items: end;
+    margin-right: 60%;
 }
 
 .friendImageAndText img {
@@ -20,6 +19,8 @@
 
 .friendText {
     background-color: #b79494;
+    border-radius: 7px;
+    padding: 5px;
 }
 
 .friendText:after {
@@ -35,5 +36,7 @@
 }
 
 .friendTime {
-
+    margin-left: 6px;
+    display: grid;
+    justify-items: start;
 }
