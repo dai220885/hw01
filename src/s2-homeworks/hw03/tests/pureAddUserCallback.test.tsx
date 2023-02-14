@@ -10,9 +10,14 @@ beforeEach(() => {
     initialState = []
 })
 
-test('name 1', () => {
-    pureAddUserCallback('name', setName, initialState)
+test('test 1', () => {
+    pureAddUserCallback('name1', setName, initialState)
     expect(initialState.length).toBe(1)
-    expect(initialState[0].name).toBe('name')
+    expect(initialState[0].name).toBe('name1')
     expect(!!initialState[0]._id).toBe(true)
+    pureAddUserCallback('name2', setName, initialState)
+    expect(initialState.length).toBe(2)
+    expect(initialState[1].name).toBe('name2')
+    expect(!!initialState[1]._id).toBe(true)
 })
+
