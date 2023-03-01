@@ -1,10 +1,19 @@
+.active{
+    color: #0610da;
+    font-weight: bold;
+    /*font-size: 50px;*/
+}
+
 .sidebar {
+    display: none
 }
 
 .sidebar.open {
+    display: block;
 }
 
 .background {
+    background-color: darkgray;
 }
 
 .nav {
@@ -14,6 +23,7 @@
 }
 
 .nav a:hover {
+    color: #0080FF;
 }
 
 .nav a.active {
