@@ -9,7 +9,17 @@
 }
 
 .sidebar.open {
-    display: block;
+
+    width: 317px;
+    height: 720px;
+    border: 2px solid black;
+
+    display: grid;
+    grid-template-rows: 30px 400px;
+    /*justify-items: end;*/
+    position: absolute;
+    z-index:  100;
+    background-color: #FFFFFF;
 }
 
 .background {
@@ -17,9 +27,17 @@
 }
 
 .nav {
+    display: grid;
+    grid-auto-rows: 50px;
+    margin-left: 70px;
+    font-size: 27px;
+    /*text-decoration: none;*/
+
+    /*justify-items: start;*/
 }
 
 .nav a {
+    text-decoration: none;
 }
 
 .nav a:hover {
