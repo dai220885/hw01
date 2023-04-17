@@ -3,10 +3,7 @@ import s from './HW12.module.css'
 import s2 from '../../s1-main/App.module.css'
 import SuperSelect from '../hw07/common/c5-SuperSelect/SuperSelect'
 import {useDispatch, useSelector} from 'react-redux'
-import {changeThemeId, themeReducer, ThemeStateType} from './bll/themeReducer'
-
-
-import {combineReducers, legacy_createStore as createStore} from 'redux';
+import {changeThemeId, ThemeStateType} from './bll/themeReducer'
 import {AppStoreType} from '../hw10/bll/store';
 
 /*
@@ -37,7 +34,7 @@ const HW12 = () => {
     }, [themeId])
 
     return (
-        <div id={'hw12'}>
+        <div id={'hw12'} data-theme={themeId.themeId}>
             <div id={'hw12-text'} className={s2.hwTitle}>
                 Homework #12
             </div>
@@ -46,11 +43,12 @@ const HW12 = () => {
                 <SuperSelect
                     id={'hw12-select-theme'}
                     className={s.select}
+                   //className={s}
                     options={themes}
                     // сделать переключение тем
                     onChangeOption={change}
-
                 />
+                {/*<div data-theme={themeId.themeId}>hello</div>*/}
             </div>
         </div>
     )
