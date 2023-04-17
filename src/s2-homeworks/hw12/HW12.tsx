@@ -3,7 +3,7 @@ import s from './HW12.module.css'
 import s2 from '../../s1-main/App.module.css'
 import SuperSelect from '../hw07/common/c5-SuperSelect/SuperSelect'
 import {useDispatch, useSelector} from 'react-redux'
-import {changeThemeId, ThemeStateType} from './bll/themeReducer'
+import {changeThemeId} from './bll/themeReducer'
 import {AppStoreType} from '../hw10/bll/store';
 
 /*
@@ -22,7 +22,7 @@ const themes = [
 const HW12 = () => {
     // взять ид темы из редакса
     //const themeId = 1
-    const themeId = useSelector <AppStoreType, ThemeStateType>(state => state.theme)
+    const themeId = useSelector <AppStoreType, number>(state => state.theme.themeId)
     const dispatch = useDispatch()
 
     const change = (id: any) => { // дописать функцию
@@ -34,7 +34,7 @@ const HW12 = () => {
     }, [themeId])
 
     return (
-        <div id={'hw12'} data-theme={themeId.themeId}>
+        <div id={'hw12'}>
             <div id={'hw12-text'} className={s2.hwTitle}>
                 Homework #12
             </div>
