@@ -24,22 +24,63 @@ const HW13 = () => {
         const url =
             x === null
                 ? 'https://xxxxxx.ccc' // имитация запроса на не корректный адрес
-                : 'https://incubator-personal-page-back.herokuapp.com/api/3.0/homework/test'
+                //: 'https://incubator-personal-page-back.herokuapp.com/api/3.0/homework/test'
+                : 'https://samurai.it-incubator.io/api/3.0/homework/test'
 
         setCode('')
         setImage('')
         setText('')
         setInfo('...loading')
-
+        //debugger
         axios
             .post(url, {success: x})
+            //.get('https://social-network.samuraijs.com/api/1.0/auth/me')
             .then((res) => {
+                //debugger
                 setCode('Код 200!')
                 setImage(success200)
+                setInfo(res.data.info)
+                setText(res.data.errorText)
+                //console.log(res)
+
                 // дописать
 
             })
             .catch((e) => {
+                //debugger
+                //console.log(e)
+                // if(x === false) {
+                //     setImage(error400)
+                //     setCode('Код 400!')
+                //     setInfo(e.name)
+                //     setText(e.message)
+                // }
+                // if(x === undefined) {
+                //     setImage(error500)
+                //     setCode('Код 500!')
+                //     setInfo(e.name)
+                //     setText(e.message)
+                // }
+                // if(x === null) {
+                //     setImage(errorUnknown)
+                //     setCode('Error!')
+                //     setInfo(e.name)
+                //     setText(e.message)
+                // }
+                if (e.response.status) {
+                    console.log(e.response.data.errorText)
+                    setCode(`Код ${e.response.status}!!`)
+                    setImage(e.response.status === 500 ? error500 : error400)
+                    setInfo(e.response.data.info)
+                    setText(e.response.data.errorText)
+
+                } else {
+                    // console.log(e.name, e.message)
+                    setImage(errorUnknown)
+                    setCode('Error')
+                    setInfo(e.name)
+                    setText(e.message)
+                }
                 // дописать
 
             })
@@ -55,6 +96,7 @@ const HW13 = () => {
                         id={'hw13-send-true'}
                         onClick={send(true)}
                         xType={'secondary'}
+                        disabled={info === '...loading'}
                         // дописать
 
                     >
@@ -64,6 +106,7 @@ const HW13 = () => {
                         id={'hw13-send-false'}
                         onClick={send(false)}
                         xType={'secondary'}
+                        disabled={info === '...loading'}
                         // дописать
 
                     >
@@ -73,6 +116,7 @@ const HW13 = () => {
                         id={'hw13-send-undefined'}
                         onClick={send(undefined)}
                         xType={'secondary'}
+                        disabled={info === '...loading'}
                         // дописать
 
                     >
@@ -82,6 +126,7 @@ const HW13 = () => {
                         id={'hw13-send-null'}
                         onClick={send(null)} // имитация запроса на не корректный адрес
                         xType={'secondary'}
+                        disabled={info === '...loading'}
                         // дописать
 
                     >
